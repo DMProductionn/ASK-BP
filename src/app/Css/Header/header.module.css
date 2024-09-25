@@ -1,0 +1,91 @@
+.burger {
+  @apply flex flex-col gap-[5px];
+}
+
+.burger span {
+  @apply w-[25px] h-[2px] bg-white block rounded-[4px];
+}
+
+.burger_block {
+  @apply flex justify-center items-center gap-[15px] max-w-[180px] w-full border-[1px] border-orange h-[50px] rounded-[4px] relative cursor-pointer hover:bg-orange;
+}
+
+.burger_block:hover .menu_category {
+  display: block !important;
+}
+
+.search {
+  @apply absolute max-h-[300px] max-w-[310px] top-[45px] w-full left-0 z-[99] bg-white overflow-auto;
+}
+
+.search::-webkit-scrollbar {
+  width: 4px; /* Ширина вертикальной полосы прокрутки */
+  height: 1px; /* Высота горизонтальной полосы прокрутки */
+}
+
+.search::-webkit-scrollbar-track {
+  background: #dedbdb; /* Цвет фона полосы прокрутки */
+  border-radius: 10px; /* Закругление углов */
+}
+
+.search::-webkit-scrollbar-thumb {
+  background: #f05a00; /* Цвет ползунка */
+  border-radius: 10px; /* Закругление углов ползунка */
+}
+
+.modal_backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 999;
+  width: 100%;
+  @apply max-w-[620px] h-[570px] py-[60px];
+}
+
+.modal-enter {
+  opacity: 0;
+  transform: translateY(-100px);
+}
+
+.modal-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.modal-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modal-exit-active {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.category_btn {
+  @apply flex bg-transparent text-black font-medium hover:bg-gray hover:text-white items-center justify-between w-full h-[60px] rounded-none px-[25px];
+}
+
+.category_btn:hover .arrow_path {
+  stroke: white;
+}
+
+.menu_category {
+  @apply absolute left-0 h-auto hidden w-auto top-[50px] bg-white;
+}

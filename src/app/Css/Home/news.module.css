@@ -1,0 +1,22 @@
+.pagination {
+  @apply flex gap-[20px] justify-center mt-[30px];
+}
+
+.page_link {
+  padding: 10px 15px;
+  color: black;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s ease;
+}
+
+.page_link:hover {
+  @apply bg-orange;
+  color: white;
+  transform: scale(1.05);
+}
+
+.page_item.active .page_link{
+  @apply bg-orange;
+  color: white;
+}
