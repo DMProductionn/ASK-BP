@@ -2,24 +2,21 @@ import NewsItem from './NewsItem';
 import ReactPaginate from 'react-paginate';
 import style from '../../../app/Css/Home/news.module.css';
 import { useState } from 'react';
+import useGetNewsAll from '../../../app/hooks/News/useGetNewsAll';
 
 const News = () => {
-  const items = [1, 2, 3, 4];
+  const { data: newsData } = useGetNewsAll();
 
   const [currentPage, setCurrentPage] = useState(0);
   const newsPerPage = 2;
 
   const indexOfLastNews = (currentPage + 1) * newsPerPage;
   const indexOfFirstNews = indexOfLastNews - newsPerPage;
-  const currentNews = items?.slice(indexOfFirstNews, indexOfLastNews);
-  const totalNewsCount = items?.length || 0;
+  const currentNews = newsData?.slice(indexOfFirstNews, indexOfLastNews);
+  const totalNewsCount = newsData?.length || 0;
 
   const handlePageClick = (data: { selected: number }) => {
     setCurrentPage(data.selected);
-  };
-
-  const handleNews = ({ newsItem }: any) => {
-    localStorage.setItem('news', JSON.stringify(newsItem));
   };
 
   return (
@@ -33,10 +30,10 @@ const News = () => {
         </p>
       </div>
       <div className="flex flex-wrap gap-[20px] w-full relative">
-        {currentNews.map((item) => (
-          <NewsItem />
-        ))}
-        <div className='absolute -bottom-[70px] w-full'>
+        {currentNews?.map((item) => {
+          return <NewsItem item={item} />;
+        })}
+        <div className="absolute -bottom-[70px] w-full">
           <ReactPaginate
             previousLabel={'<'}
             nextLabel={'>'}

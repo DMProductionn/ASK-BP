@@ -1,5 +1,8 @@
+import { Element } from "react-scroll";
+
 const AboutUs = () => {
   return (
+    <Element name="aboutUs" id="aboutUs">
     <div className="flex justify-between gap-[130px]">
       <img src="./img/others/1.jpg" alt="" />
       <div>
@@ -13,6 +16,7 @@ const AboutUs = () => {
         <button className="px-[30px] py-[12px]">ПЕРЕЙТИ В КАТАЛОГ</button>
       </div>
     </div>
+    </Element>
   );
 };
 

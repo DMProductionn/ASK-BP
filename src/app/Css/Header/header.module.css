@@ -79,13 +79,24 @@
 }
 
 .category_btn {
-  @apply flex bg-transparent text-black font-medium hover:bg-gray hover:text-white items-center justify-between w-full h-[60px] rounded-none px-[25px];
+  @apply flex bg-transparent h-[60px] text-black font-medium hover:bg-gray hover:text-white items-center justify-between w-full rounded-none p-[25px];
 }
 
 .category_btn:hover .arrow_path {
   stroke: white;
 }
 
-.menu_category {
-  @apply absolute left-0 h-auto hidden w-auto top-[50px] bg-white;
+
+.sub_category {
+  @apply absolute -right-[102px] z-[999] hidden  flex-col gap-[15px] h-auto w-auto top-0 bg-white px-[30px] py-[18px] transition;
 }
+
+.sub_category_item {
+  @apply text-black hover:text-orange;
+}
+
+.menu_category {
+  @apply absolute z-[999] -left-[1px] h-auto hidden w-auto top-[50px] bg-white;
+}
+
+

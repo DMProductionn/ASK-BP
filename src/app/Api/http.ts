@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
 const http = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com',
-})
+  baseURL: 'http://localhost:8000',
+});
 
-export default http
+export default http;

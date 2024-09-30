@@ -1,6 +1,36 @@
-const ShowMore = () => {
+import { useDispatch, useSelector } from 'react-redux';
+import { getParentCategoryProduct, getSubCategoryProduct } from '../../app/services/product.service';
+import { RootState } from '../../app/redux/store';
+import { setProductIsArray, setProductIsArrayCategory } from '../../app/redux/Slices/product.slice';
+import { setLimit } from '../../app/redux/Slices/limit.slice';
+
+const ShowMore = ({toggleRequest, setIsLoadingLimit}: {toggleRequest: string, setIsLoadingLimit: (arg0: boolean) => void}) => {
+  const { limit } = useSelector((state: RootState) => state.limitSlice);
+  const { subCategory } = useSelector((state: RootState) => state.categorySlice);
+  const dispatch = useDispatch();
+  
+  const onClickShowMore = () => {
+    if (toggleRequest === 'sub') {
+      setIsLoadingLimit(true);
+      getSubCategoryProduct(subCategory?.id, limit + 6).then((res) => {
+        dispatch(setProductIsArray(res));
+        dispatch(setProductIsArrayCategory(res));
+        dispatch(setLimit(limit + 6));
+      }).finally(() => setIsLoadingLimit(false));
+    } else if (toggleRequest === 'parent') {
+      setIsLoadingLimit(true);
+      getParentCategoryProduct(subCategory?.id, limit + 6).then((res) => {
+        dispatch(setProductIsArray(res));
+        dispatch(setProductIsArrayCategory(res));
+        dispatch(setLimit(limit + 6));
+      }).finally(() => setIsLoadingLimit(false));
+    }
+  };
+  
   return (
-    <button className="max-w-[970px] w-full bg-transparent border-[1px] hover:bg-transparent border-[#DEDBDB] text-black flex justify-center items-center mx-auto h-[60px] mt-[20px]">
+    <button
+      onClick={onClickShowMore}
+      className="max-w-[970px] w-full bg-transparent border-[1px] hover:bg-transparent border-[#DEDBDB] text-black flex justify-center items-center mx-auto h-[60px] mt-[20px]">
       <svg
         className="mr-[12px]"
         width="24"

@@ -1,18 +1,41 @@
+import { useLocation } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
+import { Link as Scroll } from 'react-scroll';
 
 const Nav = () => {
+  const location = useLocation();
+
   return (
     <nav>
       <ul className="flex gap-[50px]">
-        <li>О компании</li>
-        <li>Отзывы</li>
-        <li>Партнёры</li>
-        <li>Достижения</li>
-        <li>Дилеры</li>
-        <li>Продукция</li>
+        <li className="cursor-pointer">
+          <Scroll to="aboutUs" spy={true} smooth={true} duration={500}>
+            <Link to="/#aboutUs">О компании</Link>
+          </Scroll>
+        </li>
+        <li className="cursor-pointer">
+          <Link className={location.pathname === '/reviews' ? 'text-orange' : ''} to="/reviews">Отзывы</Link>
+        </li>
+        <li className="cursor-pointer">
+          <Scroll to="partnersAndDealers" spy={true} smooth={true} duration={500}>
+            <Link to="/#partnersAndDealers">Партнёры</Link>
+          </Scroll>
+        </li>
+        <li className="cursor-pointer">
+          <Link className={location.pathname === '/achievements' ? 'text-orange' : ''} to="/achievements">Достижения</Link>
+        </li>
+        <li className="cursor-pointer">
+          <Scroll to="partnersAndDealers" spy={true} smooth={true} duration={500}>
+            <Link to="/#partnersAndDealers">Дилеры</Link>
+          </Scroll>
+        </li>
+        <li className="cursor-pointer">
+          <Link className={location.pathname === '/catalog' ? 'text-orange' : ''} to="/catalog">Продукция</Link>
+        </li>
         {/* <li>Контакты</li> */}
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
