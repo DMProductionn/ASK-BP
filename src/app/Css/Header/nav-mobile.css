@@ -1,0 +1,66 @@
+.nav_mobile_burger {
+  @apply flex flex-col z-[999] gap-[5px] opacity-100;
+}
+
+
+.nav_mobile_burger_overlay {
+  position: absolute !important;
+  opacity: 100% !important;
+  @apply flex flex-col z-[999] gap-[5px] top-[30px] left-[30px];
+}
+
+.nav_mobile_burger_overlay li {
+  @apply w-[35px] h-[3px] bg-white;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav_mobile_burger_overlay li:nth-child(2) {
+  opacity: 0;
+}
+
+.nav_mobile_burger_overlay li:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+  background-color: #fff;
+}
+
+.nav_mobile_burger_overlay li:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  background-color: white;
+}
+
+
+.nav_mobile_burger li {
+  @apply w-[35px] h-[3px] bg-white;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav_mobile_burger.active li:nth-child(2) {
+  opacity: 0;
+}
+
+.nav_mobile_burger.active li:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+  background-color: #fff;
+}
+
+.nav_mobile_burger.active li:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  background-color: white;
+}
+
+.nav_mobile_overlay {
+  @apply w-full h-full bg-black fixed -top-[600px] left-0 z-[999] opacity-0;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav_mobile_overlay.active {
+  top: 0px;
+  opacity: 100% !important;
+}
+
+
+@media screen and (max-width: 1261px) {
+  .nav_mobile_burger {
+    display: flex !important;
+  }
+}

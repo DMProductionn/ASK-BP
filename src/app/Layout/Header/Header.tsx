@@ -4,17 +4,19 @@ import Nav from '../../../widgets/Header/Nav';
 import Search from '../../../widgets/Header/Search';
 import ModalOrderCall from '../../../widgets/Header/Modal/ModalOrderCall';
 import { Link } from 'react-router-dom';
+import style from '../../Css/Header/header.module.css'
+import NavMobile from '../../../widgets/Header/Nav/NavMobile';
 
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <header className="bg-black">
-      <div className="bg-gray">
-        <div className=" py-[20px] text-white px-[15px] max-w-[1270px] w-full mx-auto">
-          <div className="max-w-[700px] w-full flex justify-between items-center">
+      <div className="bg-gray h-auto">
+        <div className="py-[20px] text-white px-[15px] max-w-[1270px] w-full mx-auto">
+          <div className="max-w-[700px] w-full gap-[20px] flex flex-wrap justify-between items-center">
             <Link to='/'>Logo</Link>
-            <div>
+            <div className={style.send_request}>
               <Link
                 className="bg-orange w-auto h-[30px] px-[10px] flex justify-center items-center rounded-[4px]"
                 to="/send">
@@ -22,7 +24,7 @@ const Header = () => {
               </Link>
               <ModalOrderCall show={showModal} onClose={() => setShowModal(false)} />
             </div>
-            <div>
+            <div className={style.send_call}>
               <a href='tel:+74997033415' className="text-[18px] block font-[bold] hover:underline">+7(499) 703-34-15</a>
               <button
                 className="bg-none text-orange hover:underline hover:bg-transparent"
@@ -33,7 +35,8 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="bg-black w-full h-[90px] flex justify-between items-center text-white px-[15px] max-w-[1270px] mx-auto">
+      <div className={style.header_down}>
+        <NavMobile />
         <BurgerBlock />
         <Nav />
         <Search />

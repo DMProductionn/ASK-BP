@@ -22,7 +22,7 @@ const SliderMedium = () => {
     <>
       <div className="relative" style={{ textAlign: 'center' }}>
         <div
-          className={`${style.slide} w-[310px] h-[490px] ${
+          className={`${style.slide} ${style.medium} w-[310px] h-[490px] ${
             isTransitioning ? `${style.fade}` : ''
           }`}>
           <img

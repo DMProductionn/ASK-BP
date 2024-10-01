@@ -1,12 +1,13 @@
 import { Element } from 'react-scroll';
+import style from '../../../app/Css/Home/partners_and_dealers.module.css';
 
 const PartnersAndDealers = () => {
   return (
     <Element name='partnersAndDealers' id='partnersAndDealers'>
-      <div className="mt-[180px] flex gap-[75px]">
+      <section className={style.section}>
         <div>
           <p className="font-bold text-[24px] w-full text-center mb-[20px]">Наши партнёры</p>
-          <ol>
+          <ol className={style.ol}>
             <li className="list-disc leading-[200%]">ООО "Пермский картон" г. Пермь,</li>
             <li className="list-disc leading-[200%]">
               ОАО "Комбинат магнезит" г.Сатка (Челябинская область),
@@ -24,10 +25,10 @@ const PartnersAndDealers = () => {
             <li className="list-disc leading-[200%]">ПЗСП г. Пермь.</li>
           </ol>
         </div>
-        <div className="w-[3px] h-[300px] mt-[60px] bg-black"></div>
+        <div className={style.line}></div>
         <div>
           <p className="font-bold text-[24px] w-full text-center mb-[20px]">Дилеры</p>
-          <ol>
+          <ol className={style.ol}>
             <li className="list-disc leading-[200%]">
               ООО Техкомсервис г.Пермь ул.Пермская 8. тел. +7(342) 237-68-00
             </li>
@@ -39,7 +40,7 @@ const PartnersAndDealers = () => {
             </li>
           </ol>
         </div>
-      </div>
+      </section>
     </Element>
   );
 };

@@ -1,7 +1,9 @@
+import style from '../../Css/Footer/footer.module.css'
+
 const Footer = () => {
   return (
     <footer className="bg-gray min-h-[330px] h-full flex justify-center items-center text-white text-[16px] p-[15px]">
-      <div className="flex justify-around gap-[120px] ">
+      <div className={style.footer}>
         <ul className="flex flex-col gap-[15px]">
           <li>Редукторные масла</li>
           <li>Смазки</li>

@@ -1,12 +1,13 @@
 import { useLocation } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
 import { Link as Scroll } from 'react-scroll';
+import style from '../../../app/Css/Header/nav.module.css'
 
 const Nav = () => {
   const location = useLocation();
 
   return (
-    <nav>
+    <nav className={style.nav}>
       <ul className="flex gap-[50px]">
         <li className="cursor-pointer">
           <Scroll to="aboutUs" spy={true} smooth={true} duration={500}>

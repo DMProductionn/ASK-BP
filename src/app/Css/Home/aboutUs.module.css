@@ -1,0 +1,24 @@
+.aboutUs {
+  @apply flex flex-wrap justify-between gap-[80px];
+}
+
+.img_block {
+  @apply w-[640px] h-[480px];
+}
+
+.text_block { 
+  @apply w-[40%];
+}
+
+@media screen and (max-width: 1230px) {
+  .aboutUs {
+    @apply justify-center;
+  }
+  .img_block {
+    @apply hidden;
+  }
+  .text_block { 
+    @apply w-full max-w-[860px] mx-auto;
+  }
+
+}

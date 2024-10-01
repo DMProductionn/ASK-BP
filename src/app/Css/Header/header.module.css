@@ -18,6 +18,10 @@
   @apply absolute max-h-[300px] max-w-[310px] top-[45px] w-full left-0 z-[99] bg-white overflow-auto;
 }
 
+.search_wrapper  {
+  @apply w-[310px] h-[50px] bg-white rounded-[4px] flex items-center pl-[15px] pr-[10px] gap-[8px] relative;
+}
+
 .search::-webkit-scrollbar {
   width: 4px; /* Ширина вертикальной полосы прокрутки */
   height: 1px; /* Высота горизонтальной полосы прокрутки */
@@ -99,4 +103,33 @@
   @apply absolute z-[999] -left-[1px] h-auto hidden w-auto top-[50px] bg-white;
 }
 
+.header_down {
+  @apply bg-black w-full h-full min-h-[90px] flex justify-between items-center text-white px-[15px] max-w-[1270px] mx-auto;
+}
+
+@media only screen and (max-width: 580px) {
+  .header_down {
+    @apply gap-[20px] flex-wrap py-[15px];
+  }
+
+  .search_wrapper {
+    @apply w-full;
+  }
+
+  .search {
+    @apply w-full max-w-full;
+  }
+}
+
+
+@media only screen and (max-width: 393px) {
+
+  .send_request {
+    @apply order-2 w-full max-w-[200px] mx-auto;
+  }
+
+  .send_call {
+    @apply order-1;
+  }
+}
 

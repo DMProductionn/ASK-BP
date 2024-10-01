@@ -20,8 +20,8 @@ const News = () => {
   };
 
   return (
-    <div className="flex justify-between gap-[50px] my-[100px]">
-      <div className="w-[460px]">
+    <div className={style.news}>
+      <div className={style.news_title}>
         <h3 className="text-[30px] font-bold mb-[5px]">Новости</h3>
         <p className="mb-[30px]">
           Торговое или промышленное предприятие, торгово-промышленное объединение предпринимателей,
@@ -29,7 +29,7 @@ const News = () => {
           от правосубъектности лиц, в нем участвующих. Компании имеют статус юридического лица.
         </p>
       </div>
-      <div className="flex flex-wrap gap-[20px] w-full relative">
+      <div className={style.news_item_wrapper}>
         {currentNews?.map((item) => {
           return <NewsItem item={item} />;
         })}

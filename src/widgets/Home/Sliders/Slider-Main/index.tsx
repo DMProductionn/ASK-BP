@@ -21,7 +21,7 @@ const SliderMain = () => {
   return (
     <>
       <div className="relative" style={{ textAlign: 'center' }}>
-        <div className={`${style.slide} w-[580px] h-[490px] ${isTransitioning ? `${style.fade}` : ''}`}>
+        <div className={`${style.slide} w-full max-w-[580px] h-[490px] ${isTransitioning ? `${style.fade}` : ''}`}>
           <img
             className="w-full h-full object-cover"
             src={images[currentIndex]}

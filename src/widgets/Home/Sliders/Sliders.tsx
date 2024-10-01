@@ -1,10 +1,11 @@
 import SliderMain from "./Slider-Main"
 import SliderMedium from "./Slider-Medium"
 import SlidersTwoSmall from "./Slider-two-small"
+import style from '../../../app/Css/Sliders/sliders.module.css'
 
 const Sliders = () => {
   return (
-    <div className="flex gap-[20px] bg-gray py-[20px]">
+    <div className={style.sliders_main}>
       <SliderMain />
       <SliderMedium />
       <SlidersTwoSmall />

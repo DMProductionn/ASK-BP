@@ -1,9 +1,39 @@
+.sliders_main {
+  @apply flex flex-nowrap gap-[20px] bg-gray py-[20px];
+}
+
 .slide {
   position: relative;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }
 
+.sliders_small {
+  @apply flex flex-col gap-[20px];
+}
+
 .fade {
   opacity: 0;
+}
+
+
+@media only screen and (max-width: 960px) {
+
+  .sliders_small {
+    @apply hidden;
+  }
+
+}
+
+@media only screen and (max-width: 669px) {
+
+  .sliders_main {
+    @apply flex-wrap;
+  }
+
+  .slide {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
 }

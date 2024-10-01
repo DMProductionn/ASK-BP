@@ -37,7 +37,7 @@ const SlidersTwoSmall = () => {
   };
 
   return (
-    <div className="flex flex-col gap-[20px]">
+    <div className={style.sliders_small}>
 
       <div className="relative" style={{ textAlign: 'center' }}>
         <div

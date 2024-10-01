@@ -1,0 +1,26 @@
+.section {
+  @apply mt-[180px] flex gap-[75px];
+}
+
+.line {
+  @apply w-[3px] h-[300px] mt-[60px] bg-black;
+}
+
+@media screen and (max-width: 1300px) {
+  .section {
+    @apply flex-wrap justify-center;
+  }
+
+  .line {
+    @apply hidden;
+  }
+
+}
+
+
+@media screen and (max-width: 690px) {
+  .ol {
+    @apply pl-[15px];
+  }
+
+}

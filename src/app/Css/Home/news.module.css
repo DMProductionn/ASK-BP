@@ -20,3 +20,30 @@
   @apply bg-orange;
   color: white;
 }
+
+.news {
+  @apply flex justify-between gap-[50px] my-[100px];
+}
+
+.news_title {
+  @apply w-full max-w-[330px];
+}
+
+.news_item_wrapper {
+  @apply flex gap-[20px] w-full relative;
+}
+
+@media screen and (max-width: 1260px) {
+  .news {
+    @apply justify-center flex-wrap gap-[20px];
+  }
+
+  .news_title {
+    @apply w-full max-w-[860px];
+  }
+
+  .news_item_wrapper {
+    @apply justify-center;
+  }
+
+}

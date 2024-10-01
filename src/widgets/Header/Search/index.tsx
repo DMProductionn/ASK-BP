@@ -33,7 +33,7 @@ const Search = () => {
   };
 
   return (
-    <div className="w-[310px] h-[50px] bg-white rounded-[4px] flex items-center pl-[15px] pr-[10px] gap-[8px] relative">
+    <div className={style.search_wrapper}>
       <svg
         width="24"
         height="24"
