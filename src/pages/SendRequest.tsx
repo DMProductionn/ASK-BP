@@ -3,6 +3,8 @@ import InputMask from 'react-input-mask';
 import SendRequestButton from '../features/SendRequestButton';
 import useSendRequest from '../app/hooks/Send/useSendRequest';
 import Loader from '../shared/Loader';
+import style from '../app/Css/SendRequest/send-request.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const SendRequest = () => {
   const [phone, setPhone] = useState('');
@@ -12,12 +14,13 @@ const SendRequest = () => {
   const [organization, setOrganization] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const onChangePhone = (e: any) => {
     setPhone(e.target.value.replace(/[\s\-\(\)]/g, ''));
   };
 
-  const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
+  const phoneRegex = /^\+7\d{10}$/;
 
   const send_message = {
     lastname: lastName,
@@ -46,8 +49,8 @@ const SendRequest = () => {
       {isSuccess ? (
         <div className="bg-white min-h-[350px] h-full flex flex-col justify-center items-center mt-[30px]">
           <p className="text-[24px] font-medium text-center mb-[40px]">Ваша заявка принята</p>
-          <p>Спасибо за заявку! Мы свяжемся с вами в ближайщее время</p>
-          <button className="h-[50px] w-[170px] mt-[30px]">НА ГЛАВНУЮ</button>
+          <p className='text-center'>Спасибо за заявку! Мы свяжемся с вами в ближайщее время</p>
+          <button onClick={() => navigate('/')} className="h-[50px] w-[170px] mt-[30px]">НА ГЛАВНУЮ</button>
         </div>
       ) : (
         <form
@@ -59,15 +62,15 @@ const SendRequest = () => {
             </div>
           ) : (
             <>
-              <div className="bg-white flex flex-wrap justify-between">
-                <div>
+              <div className={style.send_request_from}>
+                <div className={style.first_info}>
                   <div className="flex flex-col gap-[25px]">
                     <div className="flex flex-col">
                       <label className="text-[#8A8A8A]" htmlFor="username">
                         Фамилия
                       </label>
                       <input
-                        className="text-black border-b-[1px] border-black max-w-[310px] w-full outline-none pb-[2px]"
+                        className={style.input}
                         type="text"
                         id="username"
                         name="username"
@@ -81,7 +84,7 @@ const SendRequest = () => {
                         Телефон
                       </label>
                       <InputMask
-                        className="text-black border-b-[1px] border-black max-w-[310px] w-full outline-none pb-[2px]"
+                        className={style.input}
                         mask="+7 (999) 999-99-99"
                         required
                         value={phone}
@@ -95,7 +98,7 @@ const SendRequest = () => {
                         Организация
                       </label>
                       <input
-                        className="text-black border-b-[1px] border-black max-w-[310px] w-full outline-none pb-[2px]"
+                        className={style.input}
                         type="text"
                         id="username"
                         name="username"
@@ -104,13 +107,13 @@ const SendRequest = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col gap-[25px]">
+                <div className={`${style.second_info} flex flex-col gap-[25px]`}>
                   <div>
                     <label className="text-[#8A8A8A]" htmlFor="username">
                       Имя Отчество
                     </label>
                     <input
-                      className="text-black border-b-[1px] border-black max-w-[310px] w-full outline-none pb-[2px]"
+                      className={style.input}
                       type="text"
                       id="username"
                       name="username"
@@ -123,7 +126,7 @@ const SendRequest = () => {
                       Электронная почта
                     </label>
                     <input
-                      className="text-black border-b-[1px] border-black max-w-[310px] w-full outline-none pb-[2px]"
+                      className={style.input}
                       type="email"
                       id="username"
                       name="username"
@@ -133,7 +136,7 @@ const SendRequest = () => {
                   </div>
                 </div>
 
-                <div className="w-full max-w-[360px]">
+                <div className={`${style.third_info} w-full max-w-[360px]`}>
                   <div className="flex flex-col">
                     <label className="text-[#8A8A8A] mb-[10px]" htmlFor="text">
                       Содержание сообщения

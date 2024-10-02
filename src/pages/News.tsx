@@ -9,7 +9,7 @@ const News = () => {
 
   return (
     <>
-      <section className={style.section_news_title}>
+      <section className={style.section_news_title + 'px-[15px]'}>
         <div className="max-w-[650px] w-full overflow-auto break-words">
           <div className="relative">
             <h1 className="text-[30px] font-black">{newsData?.name}</h1>

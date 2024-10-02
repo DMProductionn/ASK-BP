@@ -8,6 +8,7 @@ import Loader from '../shared/Loader';
 import { getParentCategoryProduct } from '../app/services/product.service';
 import { setProductIsArrayCategory } from '../app/redux/Slices/product.slice';
 import useGetCategory from '../app/hooks/Category/useGetCategory';
+import style from '../app/Css/Catalog/catalog.module.css';
 
 const Catalog = () => {
   const [isLoadingLimit, setIsLoadingLimit] = useState(false);
@@ -41,13 +42,13 @@ const Catalog = () => {
     <>
       <h1 className="text-[30px] font-bold mb-[30px]">Продукция</h1>
       <Category CategoriesData={CategoriesData} setToggleRequest={setToggleRequest} />
-      <div className="w-full bg-white h-auto gap-[20px] pt-[60px] pb-[40px] text-center">
+      <div className="w-full bg-white h-auto gap-[20px] pt-[60px] pb-[40px] text-center px-[15px]">
         {isLoading ? (
           <div className='w-full min-h-[420px] h-full flex justify-center items-center'>
             <Loader />
           </div>
         ) : (
-          <div className="max-w-[970px] w-full mx-auto flex flex-wrap gap-[20px]">
+          <div className={style.catalog}>
             {productIsArrayCategory.products?.length === 0 ? (
               <div className="w-full h-[300px] flex justify-center items-center">
                 <p className="font-medium text-[20px]">Нет товаров</p>

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { getParentCategoryProduct } from '../app/services/product.service';
 import { setProductIsArray } from '../app/redux/Slices/product.slice';
 import Loader from '../shared/Loader';
+import style from '../app/Css/Catalog/catalog.module.css';
 
 const CatalogWithSubCategory = () => {
   const [toggleRequest] = useState('parent');
@@ -38,7 +39,7 @@ const CatalogWithSubCategory = () => {
             <p>Нет товаров</p>
           </div>
         ) : null}
-        <div className="max-w-[970px] w-full mx-auto flex flex-wrap gap-[20px]">
+        <div className={style.catalog}>
           {productIsArray?.products?.map((product) => {
             return <Product key={product.id} product={product} />;
           })}

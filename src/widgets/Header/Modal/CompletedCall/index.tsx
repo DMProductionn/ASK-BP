@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const CompletedCall = ({onClose}: {onClose: () => void}) => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col w-full h-full justify-center items-center gap-[60px] bg-white max-w-[620px] max-h-[570px] relative">
       <button
@@ -30,7 +33,7 @@ const CompletedCall = ({onClose}: {onClose: () => void}) => {
       <p className="text-black font-medium text-center text-[18px]">
         Спасибо за заявку! Мы свяжемся <br /> с вами в ближайщее время
       </p>
-      <button className="h-[50px] w-[170px]">НА ГЛАВНУЮ</button>
+      <button onClick={() => navigate("/")} className="h-[50px] w-[170px]">НА ГЛАВНУЮ</button>
     </div>
   );
 };

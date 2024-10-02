@@ -1,0 +1,29 @@
+.send_request_from {
+  @apply bg-white flex flex-wrap justify-between gap-[20px];
+}
+
+.input {
+  @apply text-black border-b-[1px] border-black max-w-[310px] w-full outline-none pb-[2px];
+}
+
+@media only screen and (max-width: 595px) {
+  .send_request_from {
+    @apply justify-center w-full;
+  }
+
+  .first_info {
+    @apply w-full;
+  }
+
+  .second_info {
+    @apply w-full;
+  }
+
+  .third_info {
+    max-width: 100% !important;
+  }
+
+  .input {
+    @apply max-w-full;
+  }
+}

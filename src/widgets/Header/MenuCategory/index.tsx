@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { setSubCategory } from '../../../app/redux/Slices/category.slice';
 import { setLimit } from '../../../app/redux/Slices/limit.slice';
 
-const MenuCategory = () => {
+const MenuCategory = ({setVisible} : {setVisible: React.Dispatch<React.SetStateAction<boolean>>}) => {
   const [visibleSubCategoryIndex, setVisibleSubCategoryIndex] = useState<null | number>(null);
   const dispatch = useDispatch();
 
@@ -27,7 +27,7 @@ const MenuCategory = () => {
 
   return (
     <div className={style.menu_category}>
-      <div className="flex flex-col justify-between w-[310px]">
+      <div className={`${style.menu_block} flex flex-col justify-between w-[310px]`}>
         <div>
           {CategoriesData?.map((category, index) => (
             <div
@@ -35,8 +35,11 @@ const MenuCategory = () => {
               key={category.id}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}>
-              <Link to={`/catalog/parent-category/${category.id}`} onClick={() => onClickCategory(category.name, category.id)} className={style.category_btn}>
-                {category.name}
+              <Link
+                to={`/catalog/parent-category/${category.id}`}
+                onClick={() => onClickCategory(category.name, category.id)}
+                className={style.category_btn}>
+                <p className={style.category_title_parent}>{category.name}</p>
                 {category.subcategories.length > 0 && (
                   <svg
                     className={style.arrow}
@@ -60,7 +63,7 @@ const MenuCategory = () => {
                 <div className={`${style.sub_category} flex`}>
                   {category.subcategories.map((subItem) => (
                     <Link
-                      onClick={() => onClickCategory(subItem.name, subItem.id)}
+                      onClick={() => {onClickCategory(subItem.name, subItem.id), setVisible(false)}}
                       to={`/catalog/sub-category/${subItem.id}`}
                       key={subItem.id}
                       className={style.sub_category_item}>

@@ -1,0 +1,9 @@
+.catalog {
+  @apply max-w-[1000px] w-full mx-auto flex flex-wrap gap-[20px] px-[15px];
+}
+
+@media only screen and (max-width: 1060px) {
+  .catalog {
+    @apply flex items-center justify-center;
+  }
+}

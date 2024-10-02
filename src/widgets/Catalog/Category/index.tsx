@@ -38,6 +38,7 @@ const Category = ({
   };
 
   const onClickCategorySub = (id: number, index: number) => {
+    setVisibleSubCategoryIndex(null);
     dispatch(setLimit(6));
     setToggleRequest('sub')
     dispatch(setActiveParentCategory(index));
@@ -62,7 +63,7 @@ const Category = ({
             {category.name}
           </button>
           {visibleSubCategoryIndex === index && (
-            <div className={`absolute top-[60px] left-0 w-full bg-gray text-white flex`}>
+            <div className={`absolute top-[60px] z-[999] left-0 w-full bg-gray text-white flex`}>
               {category.subcategories.map((subItem) => (
                 <button
                   onClick={() => onClickCategorySub(subItem.id, index)}
