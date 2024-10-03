@@ -7,7 +7,7 @@ import { getSubCategoryProduct } from '../app/services/product.service';
 import { setProductIsArray } from '../app/redux/Slices/product.slice';
 import Loader from '../shared/Loader';
 import style from '../app/Css/Catalog/catalog.module.css';
-
+import { Helmet } from 'react-helmet';
 
 const CatalogWithSubCategory = () => {
   const [toggleRequest, _] = useState('sub');
@@ -44,8 +44,23 @@ const CatalogWithSubCategory = () => {
             return <Product key={product.id} product={product} />;
           })}
         </div>
-        {isLoadingLimit ? <div className='mt-[50px]'><Loader /></div> : productIsArray?.has_more && <ShowMore toggleRequest={toggleRequest} setIsLoadingLimit={setIsLoadingLimit}/>}
+        {isLoadingLimit ? (
+          <div className="mt-[50px]">
+            <Loader />
+          </div>
+        ) : (
+          productIsArray?.has_more && (
+            <ShowMore toggleRequest={toggleRequest} setIsLoadingLimit={setIsLoadingLimit} />
+          )
+        )}
       </div>
+      <Helmet>
+        <title>{subCategory?.title}</title>
+        <meta
+          name="description"
+          content="Качественные смазочные материалы для надежной защиты узлов и деталей вашего оборудования. Обеспечьте долговечность и эффективность работы вашего оборудования."
+        />
+      </Helmet>
     </>
   );
 };

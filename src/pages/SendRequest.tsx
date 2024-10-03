@@ -5,6 +5,7 @@ import useSendRequest from '../app/hooks/Send/useSendRequest';
 import Loader from '../shared/Loader';
 import style from '../app/Css/SendRequest/send-request.module.css';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const SendRequest = () => {
   const [phone, setPhone] = useState('');
@@ -49,8 +50,10 @@ const SendRequest = () => {
       {isSuccess ? (
         <div className="bg-white min-h-[350px] h-full flex flex-col justify-center items-center mt-[30px]">
           <p className="text-[24px] font-medium text-center mb-[40px]">Ваша заявка принята</p>
-          <p className='text-center'>Спасибо за заявку! Мы свяжемся с вами в ближайщее время</p>
-          <button onClick={() => navigate('/')} className="h-[50px] w-[170px] mt-[30px]">НА ГЛАВНУЮ</button>
+          <p className="text-center">Спасибо за заявку! Мы свяжемся с вами в ближайщее время</p>
+          <button onClick={() => navigate('/')} className="h-[50px] w-[170px] mt-[30px]">
+            НА ГЛАВНУЮ
+          </button>
         </div>
       ) : (
         <form
@@ -155,6 +158,13 @@ const SendRequest = () => {
           )}
         </form>
       )}
+      <Helmet>
+        <title>Отправить заявку</title>
+        <meta
+          name="description"
+          content="Качественные смазочные материалы для надежной защиты узлов и деталей вашего оборудования. Обеспечьте долговечность и эффективность работы вашего оборудования."
+        />
+      </Helmet>
     </>
   );
 };

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import useGetAhievements from '../app/hooks/Achievements/useGetAchievements';
 import { TypeAchievements } from '../app/types/achievements.type';
 import Loader from '../shared/Loader';
@@ -10,7 +11,9 @@ const Achievements = () => {
       <h1 className="font-bold text-[30px] w-full text-center mb-[45px]">Наши Достижения</h1>
       <div className="w-full flex flex-col items-center justify-center gap-[10px]">
         {isLoading ? (
-          <div className='w-full h-full flex justify-center items-center min-h-[300px]'><Loader /></div>
+          <div className="w-full h-full flex justify-center items-center min-h-[300px]">
+            <Loader />
+          </div>
         ) : (
           achievementsData?.map((achievement: TypeAchievements) => (
             <img
@@ -22,6 +25,13 @@ const Achievements = () => {
           ))
         )}
       </div>
+      <Helmet>
+        <title>Достижения</title>
+        <meta
+          name="description"
+          content="Качественные смазочные материалы для надежной защиты узлов и деталей вашего оборудования. Обеспечьте долговечность и эффективность работы вашего оборудования."
+        />
+      </Helmet>
     </>
   );
 };

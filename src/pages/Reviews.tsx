@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import useGetReaviews from '../app/hooks/Reaviews/useGetReaviews';
 import { TypeReaviews } from '../app/types/reaviews.type';
 import Loader from '../shared/Loader';
@@ -24,6 +25,13 @@ const Reviews = () => {
           ))
         )}
       </div>
+      <Helmet>
+        <title>Отзывы</title>
+        <meta
+          name="description"
+          content="Качественные смазочные материалы для надежной защиты узлов и деталей вашего оборудования. Обеспечьте долговечность и эффективность работы вашего оборудования."
+        />
+      </Helmet>
     </>
   );
 };

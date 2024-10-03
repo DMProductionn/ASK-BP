@@ -9,6 +9,7 @@ import { getParentCategoryProduct } from '../app/services/product.service';
 import { setProductIsArrayCategory } from '../app/redux/Slices/product.slice';
 import useGetCategory from '../app/hooks/Category/useGetCategory';
 import style from '../app/Css/Catalog/catalog.module.css';
+import { Helmet } from 'react-helmet';
 
 const Catalog = () => {
   const [isLoadingLimit, setIsLoadingLimit] = useState(false);
@@ -44,7 +45,7 @@ const Catalog = () => {
       <Category CategoriesData={CategoriesData} setToggleRequest={setToggleRequest} />
       <div className="w-full bg-white h-auto gap-[20px] pt-[60px] pb-[40px] text-center px-[15px]">
         {isLoading ? (
-          <div className='w-full min-h-[420px] h-full flex justify-center items-center'>
+          <div className="w-full min-h-[420px] h-full flex justify-center items-center">
             <Loader />
           </div>
         ) : (
@@ -65,11 +66,19 @@ const Catalog = () => {
             <Loader />
           </div>
         ) : (
-          productIsArrayCategory?.has_more && isLoading === false && (
+          productIsArrayCategory?.has_more &&
+          isLoading === false && (
             <ShowMore toggleRequest={toggleRequest} setIsLoadingLimit={setIsLoadingLimit} />
           )
         )}
       </div>
+      <Helmet>
+        <title>Продукция</title>
+        <meta
+          name="description"
+          content="Широкий ассортимент смазочных материалов для надежной защиты узлов и деталей вашего оборудования. Узнайте о наших продуктах и выберите идеальный вариант для вашего бизнеса."
+        />
+      </Helmet>
     </>
   );
 };
