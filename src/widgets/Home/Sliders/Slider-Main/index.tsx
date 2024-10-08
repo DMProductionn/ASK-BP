@@ -3,9 +3,9 @@ import style from '../../../../app/Css/Sliders/sliders.module.css';
 
 const SliderMain = () => {
   const images = [
-    'https://via.placeholder.com/600x300?text=Slide+1',
-    'https://via.placeholder.com/600x300?text=Slide+2',
-    'https://via.placeholder.com/600x300?text=Slide+3',
+    './img/others/main-slide-1.png',
+    './img/others/main-slide-2.png',
+    './img/others/main-slide-3.png',
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,7 +21,7 @@ const SliderMain = () => {
   return (
     <>
       <div className="relative" style={{ textAlign: 'center' }}>
-        <div className={`${style.slide} w-full max-w-[580px] h-[490px] ${isTransitioning ? `${style.fade}` : ''}`}>
+        <div className={`${style.slide} ${style.slide_main} w-[580px] h-[490px] ${isTransitioning ? `${style.fade}` : ''}`}>
           <img
             className="w-full h-full object-cover"
             src={images[currentIndex]}

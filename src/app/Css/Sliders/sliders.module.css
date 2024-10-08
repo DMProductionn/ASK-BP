@@ -8,12 +8,22 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+
 .sliders_small {
   @apply flex flex-col gap-[20px];
 }
 
 .fade {
   opacity: 0;
+}
+
+@media only screen and (max-width: 1270px) {
+
+  .slide_main {
+    @apply max-w-[580px];
+    width: 100% !important;
+  }
+
 }
 
 
