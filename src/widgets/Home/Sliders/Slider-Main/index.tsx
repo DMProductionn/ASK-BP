@@ -8,11 +8,7 @@ const SliderMain = () => {
     './img/others/main-slide-2.jpg',
   ];
 
-  const texts = [
-    'Антикоррозионная защита',
-    'Модифицированные клеи',
-    'Нефтяная промышленность',
-  ];
+  const texts = ['Антикоррозионная защита', 'Модифицированные клеи', 'Нефтяная промышленность'];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -34,14 +30,16 @@ const SliderMain = () => {
   }, [isTransitioning]);
 
   return (
-    <>
-      <div className="relative" style={{ textAlign: 'center' }}>
+    <div className="relative" style={{ textAlign: 'center' }}>
+      <div
+        style={{ wordBreak: 'break-word' }}
+        className={`${style.slide} w-full max-w-[580px] h-[490px] relative  ${
+          isTransitioning ? style.fade : ''
+        }`}>
         <div
-        style={{wordBreak: 'break-word'}}
-          className={`${style.slide} w-full max-w-[580px] h-[490px] relative  ${
-            isTransitioning ? style.fade : ''
+          className={`${style.slide} ${style.slide_main} w-[580px] h-[490px] ${
+            isTransitioning ? `${style.fade}` : ''
           }`}>
-        <div className={`${style.slide} ${style.slide_main} w-[580px] h-[490px] ${isTransitioning ? `${style.fade}` : ''}`}>
           <img
             className="w-full h-full object-cover"
             src={images[currentIndex]}
@@ -77,7 +75,7 @@ const SliderMain = () => {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
