@@ -75,7 +75,7 @@ const SlidersTwoSmall = () => {
             src={images[currentIndex]}
             alt={`Slide ${currentIndex + 1}}`}
           />
-          <p className='absolute left-[20px] text-start top-[20px] text-white font-medium text-[24px] pr-[20px]'>{texts[currentIndex]}</p>
+          <p className='absolute left-[20px] text-start top-[20px] text-white font-medium text-[24px] pr-[20px]'>{texts_two[currentIndex]}</p>
         </div>
         <div>
           <button
