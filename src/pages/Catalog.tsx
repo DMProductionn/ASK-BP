@@ -68,7 +68,7 @@ const Catalog = () => {
         ) : (
           productIsArrayCategory?.has_more &&
           isLoading === false && (
-            <ShowMore toggleRequest={toggleRequest} setIsLoadingLimit={setIsLoadingLimit} />
+            <ShowMore firstCategoryId={firstCategoryId} toggleRequest={toggleRequest} setIsLoadingLimit={setIsLoadingLimit} />
           )
         )}
       </div>

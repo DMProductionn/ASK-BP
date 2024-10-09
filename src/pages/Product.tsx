@@ -20,7 +20,7 @@ const Product = () => {
           <div className="max-w-[360px] w-full max-h-[360px] h-full mb-[20px]">
             <img className="w-full h-full object-cover" src={productData?.img} alt="product" />
           </div>
-          {productData?.description && <p className='max-w-[600px] w-full mx-auto break-words'>{productData?.description}</p>}
+          {productData?.description && <p className='max-w-[600px] w-full text-center mx-auto break-words'>{productData?.description}</p>}
         </>
       )}
       <Helmet>

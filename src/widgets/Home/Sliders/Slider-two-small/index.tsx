@@ -1,19 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from 'react';
 import style from '../../../../app/Css/Sliders/sliders.module.css';
 
-
 const SlidersTwoSmall = () => {
-
   const images = [
-    'https://via.placeholder.com/600x300?text=Slide+1',
-    'https://via.placeholder.com/600x300?text=Slide+2',
-    'https://via.placeholder.com/600x300?text=Slide+3',
+    './img/others/small-slide-1.jpg',
+    './img/others/small-slide-2.jpg',
+    './img/others/small-slide-3.jpg',
   ];
 
   const images_two = [
-    'https://via.placeholder.com/600x300?text=Slide+1',
-    'https://via.placeholder.com/600x300?text=Slide+2',
+    './img/others/medium-slide-2.jpg',
+    './img/others/small-slide-5.jpg',
     'https://via.placeholder.com/600x300?text=Slide+3',
+  ];
+
+  const texts = [
+    'Антикоррозионная защита',
+    'Модифицированные клеи',
+    'Нефтяная промышленность',
+  ];
+
+  const texts_two = [
+    'Антикоррозионная защита',
+    'Модифицированные клеи',
+    'Нефтяная промышленность',
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,22 +33,38 @@ const SlidersTwoSmall = () => {
   const [isTransitioningTwo, setIsTransitioningTwo] = useState(false);
 
   const nextSlide = () => {
-    if (isTransitioning) return;
+    if (isTransitioningTwo) return;
     setIsTransitioning(true);
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    setTimeout(() => setIsTransitioning(false), 500);
+
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setIsTransitioning(false);
+    }, 500);
   };
 
   const nextSlideTwo = () => {
     if (isTransitioningTwo) return;
     setIsTransitioningTwo(true);
-    setCurrentIndexTwo((prevIndex) => (prevIndex + 1) % images.length);
-    setTimeout(() => setIsTransitioningTwo(false), 500);
+
+    setTimeout(() => {
+      setCurrentIndexTwo((prevIndex) => (prevIndex + 1) % images.length);
+      setIsTransitioningTwo(false);
+    }, 500);
   };
+
+  useEffect(() => {
+    const intervalId = setInterval(nextSlide, 3000);
+
+    return () => clearInterval(intervalId);
+  }, [isTransitioning]);
+
+  useEffect(() => {
+    const intervalIdTwo = setInterval(nextSlideTwo, 3000);
+    return () => clearInterval(intervalIdTwo);
+  }, [isTransitioningTwo]);
 
   return (
     <div className={style.sliders_small}>
-
       <div className="relative" style={{ textAlign: 'center' }}>
         <div
           className={`${style.slide} w-[310px] h-[235px] ${
@@ -49,6 +75,7 @@ const SlidersTwoSmall = () => {
             src={images[currentIndex]}
             alt={`Slide ${currentIndex + 1}}`}
           />
+          <p className='absolute left-[20px] text-start top-[20px] text-white font-medium text-[24px] pr-[20px]'>{texts[currentIndex]}</p>
         </div>
         <div>
           <button
@@ -89,6 +116,7 @@ const SlidersTwoSmall = () => {
             src={images_two[currentIndexTwo]}
             alt={`Slide ${currentIndexTwo + 1}}`}
           />
+          <p className='absolute left-[20px] text-start top-[20px] text-white font-medium text-[24px] pr-[20px]'>{texts[currentIndexTwo]}</p>
         </div>
         <div>
           <button
@@ -118,9 +146,8 @@ const SlidersTwoSmall = () => {
           </button>
         </div>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default SlidersTwoSmall
+export default SlidersTwoSmall;

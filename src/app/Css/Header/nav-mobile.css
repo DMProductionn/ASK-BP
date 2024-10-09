@@ -49,7 +49,7 @@
 }
 
 .nav_mobile_overlay {
-  @apply w-full h-full bg-black fixed -top-[600px] left-0 z-[999] opacity-0;
+  @apply w-full h-full bg-black fixed -top-[1000px] left-0 z-[999] opacity-0;
   transition: all 0.3s ease-in-out;
 }
 

@@ -10,7 +10,7 @@ const News = () => {
   return (
     <>
       <section className={style.section_news_title + 'px-[15px]'}>
-        <div className="max-w-[650px] w-full overflow-auto break-words">
+        <div className="max-w-[1000px] mb-[15px] w-full mx-auto overflow-auto break-words">
           <div className="relative">
             <h1 className="text-[30px] font-black">{newsData?.name}</h1>
             <p className="mb-[10px] font-[600]">{newsData?.created_at}</p>

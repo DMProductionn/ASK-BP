@@ -1,32 +1,60 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getParentCategoryProduct, getSubCategoryProduct } from '../../app/services/product.service';
+import {
+  getParentCategoryProduct,
+  getSubCategoryProduct,
+} from '../../app/services/product.service';
 import { RootState } from '../../app/redux/store';
 import { setProductIsArray, setProductIsArrayCategory } from '../../app/redux/Slices/product.slice';
 import { setLimit } from '../../app/redux/Slices/limit.slice';
+import { useLocation } from 'react-router-dom';
 
-const ShowMore = ({toggleRequest, setIsLoadingLimit}: {toggleRequest: string, setIsLoadingLimit: (arg0: boolean) => void}) => {
+const ShowMore = ({
+  toggleRequest,
+  setIsLoadingLimit,
+  firstCategoryId,
+}: {
+  toggleRequest: string;
+  setIsLoadingLimit: (arg0: boolean) => void;
+  firstCategoryId: number | null;
+}) => {
   const { limit } = useSelector((state: RootState) => state.limitSlice);
   const { subCategory } = useSelector((state: RootState) => state.categorySlice);
   const dispatch = useDispatch();
-  
+  const location = useLocation();
+
   const onClickShowMore = () => {
     if (toggleRequest === 'sub') {
       setIsLoadingLimit(true);
-      getSubCategoryProduct(subCategory?.id, limit + 6).then((res) => {
-        dispatch(setProductIsArray(res));
-        dispatch(setProductIsArrayCategory(res));
-        dispatch(setLimit(limit + 6));
-      }).finally(() => setIsLoadingLimit(false));
+      getSubCategoryProduct(subCategory?.id, limit + 6)
+        .then((res) => {
+          dispatch(setProductIsArray(res));
+          dispatch(setProductIsArrayCategory(res));
+          dispatch(setLimit(limit + 6));
+        })
+        .finally(() => setIsLoadingLimit(false));
     } else if (toggleRequest === 'parent') {
       setIsLoadingLimit(true);
-      getParentCategoryProduct(subCategory?.id, limit + 6).then((res) => {
-        dispatch(setProductIsArray(res));
-        dispatch(setProductIsArrayCategory(res));
-        dispatch(setLimit(limit + 6));
-      }).finally(() => setIsLoadingLimit(false));
+      getParentCategoryProduct(subCategory?.id, limit + 6)
+        .then((res) => {
+          dispatch(setProductIsArray(res));
+          dispatch(setProductIsArrayCategory(res));
+          dispatch(setLimit(limit + 6));
+        })
+        .finally(() => setIsLoadingLimit(false));
+    }
+
+    if (location.pathname === '/catalog') {
+      setIsLoadingLimit(true);
+      getParentCategoryProduct(firstCategoryId, limit + 6)
+        .then((res) => {
+          dispatch(setProductIsArray(res));
+          dispatch(setProductIsArrayCategory(res));
+          dispatch(setLimit(limit + 6));
+        })
+        .finally(() => setIsLoadingLimit(false));
     }
   };
-  
+
   return (
     <button
       onClick={onClickShowMore}

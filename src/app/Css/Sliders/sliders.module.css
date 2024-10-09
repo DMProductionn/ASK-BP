@@ -16,11 +16,21 @@
   opacity: 0;
 }
 
+.text {
+  @apply absolute left-[20px] text-start top-[20px] text-white font-medium text-[32px] pr-[20px];
+}
+
+
+
 
 @media only screen and (max-width: 960px) {
 
   .sliders_small {
     @apply hidden;
+  }
+
+  .text {
+    @apply text-[24px];
   }
 
 }

@@ -1,11 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import style from '../../../../app/Css/Sliders/sliders.module.css';
 
 const SliderMain = () => {
   const images = [
-    'https://via.placeholder.com/600x300?text=Slide+1',
-    'https://via.placeholder.com/600x300?text=Slide+2',
-    'https://via.placeholder.com/600x300?text=Slide+3',
+    './img/others/main-slide-1.jpg',
+    './img/others/main-slide-2.jpg',
+    './img/others/main-slide-2.jpg',
+  ];
+
+  const texts = [
+    'Антикоррозионная защита',
+    'Модифицированные клеи',
+    'Нефтяная промышленность',
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,19 +20,33 @@ const SliderMain = () => {
   const nextSlide = () => {
     if (isTransitioning) return;
     setIsTransitioning(true);
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    setTimeout(() => setIsTransitioning(false), 500);
+
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setIsTransitioning(false);
+    }, 500);
   };
+
+  useEffect(() => {
+    const intervalId = setInterval(nextSlide, 2000);
+
+    return () => clearInterval(intervalId);
+  }, [isTransitioning]);
 
   return (
     <>
       <div className="relative" style={{ textAlign: 'center' }}>
-        <div className={`${style.slide} w-full max-w-[580px] h-[490px] ${isTransitioning ? `${style.fade}` : ''}`}>
+        <div
+        style={{wordBreak: 'break-word'}}
+          className={`${style.slide} w-full max-w-[580px] h-[490px] relative  ${
+            isTransitioning ? style.fade : ''
+          }`}>
           <img
             className="w-full h-full object-cover"
             src={images[currentIndex]}
-            alt={`Slide ${currentIndex + 1}}`}
+            alt={`Slide ${currentIndex + 1}`}
           />
+          <p className={style.text}>{texts[currentIndex]}</p>
         </div>
         <div>
           <button
