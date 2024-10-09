@@ -41,6 +41,7 @@ const SliderMain = () => {
           className={`${style.slide} w-full max-w-[580px] h-[490px] relative  ${
             isTransitioning ? style.fade : ''
           }`}>
+        <div className={`${style.slide} ${style.slide_main} w-[580px] h-[490px] ${isTransitioning ? `${style.fade}` : ''}`}>
           <img
             className="w-full h-full object-cover"
             src={images[currentIndex]}

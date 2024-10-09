@@ -8,6 +8,7 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+
 .sliders_small {
   @apply flex flex-col gap-[20px];
 }
@@ -15,12 +16,6 @@
 .fade {
   opacity: 0;
 }
-
-.text {
-  @apply absolute left-[20px] text-start top-[20px] text-white font-medium text-[32px] pr-[20px];
-}
-
-
 
 
 @media only screen and (max-width: 960px) {
