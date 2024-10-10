@@ -1,4 +1,5 @@
-import style from '../../Css/Footer/footer.module.css'
+import { Link } from 'react-router-dom';
+import style from '../../Css/Footer/footer.module.css';
 
 const Footer = () => {
   return (
@@ -30,9 +31,15 @@ const Footer = () => {
           <li>Партнёры</li>
         </nav>
         <ul className="flex flex-col gap-[30px]">
-          <li>Logo</li>
+          <li>
+            <Link className="w-[110px] overflow-hidden flex justify-center items-center" to="/">
+              <img src="./img/Logo/Logo.png" alt="logo" />
+            </Link>
+          </li>
           <li>+7(499) 703-34-15</li>
-          <li>Соглашение пользователя <br /> «Copyright © ASK-BP {new Date().getFullYear()}»</li>
+          <li>
+            Соглашение пользователя <br /> «Copyright © ASK-BP {new Date().getFullYear()}»
+          </li>
         </ul>
       </div>
     </footer>

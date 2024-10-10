@@ -24,21 +24,21 @@ const SliderMedium = () => {
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
       setIsTransitioning(false); 
-    }, 500); 
+    }, 700); 
   };
 
   useEffect(() => {
-    const intervalId = setInterval(nextSlide, 2500); 
+    const intervalId = setInterval(nextSlide, 5000); 
 
     return () => clearInterval(intervalId);
   }, [isTransitioning]); 
 
   return (
     <>
-      <div className="relative" style={{ textAlign: 'center' }}>
+      <div className={`${style.medium} relative`} style={{ textAlign: 'center' }}>
         <div
         style={{wordBreak: 'break-word'}}
-          className={`${style.slide} ${style.medium} relative w-[310px] h-[490px] ${
+          className={`${style.slide} ${style.slide_medium} relative w-[310px] h-[490px] ${
             isTransitioning ? `${style.fade}` : ''
           }`}>
           <img

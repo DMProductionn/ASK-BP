@@ -20,11 +20,11 @@ const SliderMain = () => {
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
       setIsTransitioning(false);
-    }, 500);
+    }, 700);
   };
 
   useEffect(() => {
-    const intervalId = setInterval(nextSlide, 2000);
+    const intervalId = setInterval(nextSlide, 4000);
 
     return () => clearInterval(intervalId);
   }, [isTransitioning]);
@@ -45,7 +45,7 @@ const SliderMain = () => {
             src={images[currentIndex]}
             alt={`Slide ${currentIndex + 1}`}
           />
-          <p className={style.text}>{texts[currentIndex]}</p>
+          <p className={`${style.text} absolute left-[20px] text-start top-[20px] text-white font-medium text-[32px] pr-[20px]`}>{texts[currentIndex]}</p>
         </div>
         <div>
           <button

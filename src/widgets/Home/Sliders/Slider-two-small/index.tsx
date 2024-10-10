@@ -11,7 +11,7 @@ const SlidersTwoSmall = () => {
   const images_two = [
     './img/others/medium-slide-2.jpg',
     './img/others/small-slide-5.jpg',
-    'https://via.placeholder.com/600x300?text=Slide+3',
+    './img/others/small-slide-5.jpg',
   ];
 
   const texts = [
@@ -39,7 +39,7 @@ const SlidersTwoSmall = () => {
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
       setIsTransitioning(false);
-    }, 500);
+    }, 700);
   };
 
   const nextSlideTwo = () => {
@@ -49,17 +49,17 @@ const SlidersTwoSmall = () => {
     setTimeout(() => {
       setCurrentIndexTwo((prevIndex) => (prevIndex + 1) % images.length);
       setIsTransitioningTwo(false);
-    }, 500);
+    }, 700);
   };
 
   useEffect(() => {
-    const intervalId = setInterval(nextSlide, 3000);
+    const intervalId = setInterval(nextSlide, 6000);
 
     return () => clearInterval(intervalId);
   }, [isTransitioning]);
 
   useEffect(() => {
-    const intervalIdTwo = setInterval(nextSlideTwo, 3000);
+    const intervalIdTwo = setInterval(nextSlideTwo, 6000);
     return () => clearInterval(intervalIdTwo);
   }, [isTransitioningTwo]);
 

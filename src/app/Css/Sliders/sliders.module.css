@@ -17,18 +17,29 @@
   opacity: 0;
 }
 
-
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 1270px) {
 
   .sliders_small {
     @apply hidden;
   }
 
-  .text {
-    @apply text-[24px];
+  .medium {
+    @apply w-full;
   }
 
+  .slide_medium {
+    width: 100% !important;
+  }
+
+  .slide_main {
+    width: 100% !important;
+  }
+
+  .text {
+    font-size: 24px !important;
+  }
 }
+
 
 @media only screen and (max-width: 669px) {
 
