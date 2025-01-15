@@ -24,7 +24,7 @@ const SliderMain = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(nextSlide, 4000);
+    const intervalId = setInterval(nextSlide, 5000);
 
     return () => clearInterval(intervalId);
   }, [isTransitioning]);

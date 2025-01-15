@@ -53,13 +53,13 @@ const SlidersTwoSmall = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(nextSlide, 6000);
+    const intervalId = setInterval(nextSlide, 7000);
 
     return () => clearInterval(intervalId);
   }, [isTransitioning]);
 
   useEffect(() => {
-    const intervalIdTwo = setInterval(nextSlideTwo, 6000);
+    const intervalIdTwo = setInterval(nextSlideTwo, 7000);
     return () => clearInterval(intervalIdTwo);
   }, [isTransitioningTwo]);
 
