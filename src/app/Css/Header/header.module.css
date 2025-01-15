@@ -83,11 +83,11 @@
 }
 
 .category_btn {
-  @apply flex bg-transparent h-[60px] text-black font-medium hover:bg-gray hover:text-white items-center justify-between w-full rounded-none p-[25px];
+  @apply flex bg-transparent h-[60px] text-black font-medium hover:text-orange items-center justify-between w-full rounded-none p-[25px];
 }
 
 .category_btn:hover .arrow_path {
-  stroke: white;
+  stroke: #0C76D8;
 }
 
 

@@ -10,7 +10,7 @@ const Layout = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       {location.pathname === '/' && (
-        <div className="bg-gray mb-[80px]">
+        <div className="bg-black mb-[80px]">
           <div className="max-w-[1270px] w-full mx-auto px-[15px]">
             <Sliders />
           </div>

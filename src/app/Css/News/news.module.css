@@ -34,10 +34,6 @@
   color: white;
 }
 
-.news_img {
-  @apply w-full h-full object-cover mb-[20px];
-}
-
 .date {
   @apply absolute text-white bottom-[5px] right-[10px];
 }

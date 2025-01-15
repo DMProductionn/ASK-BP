@@ -17,7 +17,7 @@ const AboutUs = () => {
             предприятия
           </p>
           <Link to="/catalog">
-            <button className="px-[30px] py-[12px] text-black hover:text-white">ПЕРЕЙТИ В КАТАЛОГ</button>
+            <button className="px-[30px] py-[12px] text-white bg-orange hover:bg-black transition-all">ПЕРЕЙТИ В КАТАЛОГ</button>
           </Link>
         </div>
       </div>

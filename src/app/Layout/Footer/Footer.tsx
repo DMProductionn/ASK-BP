@@ -33,12 +33,12 @@ const Footer = () => {
         <ul className="flex flex-col gap-[30px]">
           <li>
             <Link className="w-[250px] overflow-hidden flex justify-center items-center" to="/">
-              <img src="./img/Logo/Logo.png" alt="logo" />
+              <img src="/img/Logo/Logo.png" alt="logo" />
             </Link>
           </li>
           <li>+7(499) 703-34-15</li>
           <li>
-            Соглашение пользователя <br /> «Copyright © ASK-BP {new Date().getFullYear()}»
+            Соглашение пользователя <br /> «Copyright © Уральский Промышленный Центр {new Date().getFullYear()}»
           </li>
         </ul>
       </div>

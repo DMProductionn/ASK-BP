@@ -1,5 +1,5 @@
 .sliders_main {
-  @apply flex flex-nowrap gap-[20px] bg-gray py-[20px];
+  @apply flex flex-nowrap gap-[20px] bg-black py-[20px];
 }
 
 .slide {
