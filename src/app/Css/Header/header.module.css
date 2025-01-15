@@ -104,7 +104,7 @@
 }
 
 .header_down {
-  @apply bg-black w-full h-full min-h-[90px] flex justify-between items-center text-white px-[15px] max-w-[1270px] mx-auto;
+  @apply bg-black w-full h-full min-h-[90px] flex justify-between items-center text-white px-[15px] max-w-[1350px] mx-auto;
 }
 
 @media only screen and (max-width: 580px) {

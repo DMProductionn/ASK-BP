@@ -3,7 +3,7 @@ import style from '../../Css/Footer/footer.module.css';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray min-h-[330px] h-full flex justify-center items-center text-white text-[16px] p-[15px]">
+    <footer className="bg-gray min-h-[330px] h-full flex justify-center items-center text-black text-[16px] p-[15px]">
       <div className={style.footer}>
         <ul className="flex flex-col gap-[15px]">
           <li>Редукторные масла</li>
@@ -32,7 +32,7 @@ const Footer = () => {
         </nav>
         <ul className="flex flex-col gap-[30px]">
           <li>
-            <Link className="w-[110px] overflow-hidden flex justify-center items-center" to="/">
+            <Link className="w-[250px] overflow-hidden flex justify-center items-center" to="/">
               <img src="./img/Logo/Logo.png" alt="logo" />
             </Link>
           </li>

@@ -13,14 +13,14 @@ const Header = () => {
   return (
     <header className="bg-black">
       <div className="bg-gray h-auto">
-        <div className="py-[20px] text-white px-[15px] max-w-[1270px] w-full mx-auto">
+        <div className="py-[20px] text-black px-[15px] max-w-[1270px] w-full mx-auto">
           <div className="max-w-[700px] w-full gap-[20px] flex flex-wrap justify-between items-center">
-            <Link className='w-[110px] overflow-hidden flex justify-center items-center'to="/">
+            <Link className='w-[250px] overflow-hidden flex justify-center items-center'to="/">
               <img src="./img/Logo/Logo.png" alt="logo" />
             </Link>
             <div className={style.send_request}>
               <Link
-                className="bg-orange w-auto h-[30px] px-[10px] flex justify-center items-center rounded-[4px]"
+                className="bg-orange text-white w-auto h-[40px] px-[10px] flex justify-center items-center rounded-[4px]"
                 to="/send">
                 Отправить заявку
               </Link>
