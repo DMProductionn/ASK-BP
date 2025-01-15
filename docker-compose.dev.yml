@@ -1,0 +1,21 @@
+services:
+  react:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: uralpromcenter_react_dev_image
+    container_name: uralpromcenter_react_dev
+    command: sh -c "npm run dev"
+    volumes:
+      - react_dist:/app/dist
+    ports:
+      - 3001:3001
+    networks:
+      - react_network
+
+volumes:
+  react_dist:
+
+networks:
+  react_network:
+    driver: bridge
