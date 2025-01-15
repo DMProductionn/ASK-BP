@@ -1,13 +1,17 @@
 FROM node:latest
 
+RUN mkdir /app
+
 WORKDIR /app
 
 ENV PATH=/app/node_modules/.bin:$PATH
 
-COPY package.json /app/package.json
+COPY package.json .
+
+RUN npm cache clean --force
 
 RUN npm i
 
-COPY . /app
+COPY . .
 
 CMD ["npm", "run", "dev"]
