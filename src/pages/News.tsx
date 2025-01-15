@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import style from '../app/css/Home/news.module.css';
+import style from '../app/Css/Home/news.module.css';
 import useGetNewsDetail from '../app/hooks/News/useGetNewsDetail';
 import { useParams } from 'react-router-dom';
 const News = () => {
