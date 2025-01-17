@@ -1,4 +1,4 @@
-FROM node:latest-bullseye
+FROM node:18-bullseye
 
 RUN mkdir /app
 
