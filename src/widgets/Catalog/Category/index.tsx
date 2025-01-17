@@ -57,7 +57,7 @@ const Category = ({
             onClick={() => onClickCategoryParent(category.id, index)}
             className={
               activeParentCategory === index
-                ? 'bg-orange rounded-none text-white w-full px-[10px] h-[60px]'
+                ? 'bg-orange hover:bg-black rounded-none text-white w-full px-[10px] h-[60px]'
                 : 'w-full hover:text-white bg-white text-black px-[10px] h-[60px] rounded-none'
             }>
             {category.name}
@@ -68,7 +68,7 @@ const Category = ({
                 <button
                   onClick={() => onClickCategorySub(subItem.id, index)}
                   key={subItem.id}
-                  className={`w-full text-white bg-gray px-[10px] h-[60px] rounded-none`}>
+                  className={`w-full text-white bg-orange hover:bg-black px-[10px] h-[60px] rounded-none`}>
                   {subItem.name}
                 </button>
               ))}

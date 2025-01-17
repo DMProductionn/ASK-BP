@@ -15,8 +15,8 @@ const Header = () => {
       <div className="bg-gray h-auto">
         <div className="py-[20px] text-black px-[15px] max-w-[1270px] w-full mx-auto">
           <div className="max-w-[700px] w-full gap-[20px] flex flex-wrap justify-between items-center">
-            <Link className='w-[250px] overflow-hidden flex justify-center items-center'to="/">
-              <img src="./img/Logo/Logo.png" alt="logo" />
+            <Link className='w-[250px] overflow-hidden flex justify-center items-center' to="/">
+              <img src="/img/Logo/Logo.png" alt="logo" />
             </Link>
             <div className={style.send_request}>
               <Link
@@ -31,7 +31,7 @@ const Header = () => {
                 +7(499) 703-34-15
               </a>
               <button
-                className="bg-none text-orange hover:underline hover:bg-transparent"
+                className="bg-transparent text-orange hover:underline hover:bg-transparent"
                 onClick={() => setShowModal(true)}>
                 Заказать звонок
               </button>

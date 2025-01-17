@@ -19,7 +19,7 @@ const Product = ({ ...product }: {product: TypeProduct}) => {
           <img className="w-full h-full object-cover" src={product?.product?.img} alt="product" />
         </div>
       </div>
-      <button onClick={onClickProduct} className="h-[50px] w-full rounded-none rounded-b-[4px]">{product?.product?.name}</button>
+      <button onClick={onClickProduct} className="h-[50px] w-full rounded-none rounded-b-[4px] bg-orange hover:bg-black transition-all">{product?.product?.name}</button>
     </div>
   );
 };

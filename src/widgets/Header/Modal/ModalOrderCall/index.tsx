@@ -22,7 +22,7 @@ const ModalOrderCall: React.FC<ModalOrderCallProps> = ({ show, onClose }) => {
 
   const phoneRegex = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
 
-  const { mutate, isPending, isSuccess } = useSendCall();
+  const { mutate, isPending, isSuccess, error } = useSendCall();
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPhone(event.target.value.replace(/[\s\-\(\)]/g, ''));
   };
@@ -57,9 +57,14 @@ const ModalOrderCall: React.FC<ModalOrderCallProps> = ({ show, onClose }) => {
                 <div className="h-full w-full flex justify-center items-center">
                   <Loader />
                 </div>
+              ) : error ? (
+                <div className="w-full h-full flex justify-center text-center items-center text-[20px] font-medium">
+                  Слишком много запросов. <br /> Попробуйте позже.
+                </div>
               ) : (
                 <>
                   <button
+                    type="button"
                     className="bg-transparent hover:bg-transparent absolute top-[15px] right-[15px]"
                     onClick={onClose}>
                     <svg
