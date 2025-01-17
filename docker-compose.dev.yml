@@ -1,3 +1,5 @@
+version: '3.7'
+
 services:
   react:
     build:
@@ -15,6 +17,7 @@ services:
 
 volumes:
   react_dist:
+    driver: local
 
 networks:
   react_network:
