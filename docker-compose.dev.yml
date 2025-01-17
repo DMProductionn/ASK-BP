@@ -4,7 +4,7 @@ services:
   react:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     image: uralpromcenter_react_dev_image
     container_name: uralpromcenter_react_dev
     command: sh -c "npm run dev"
